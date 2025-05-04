@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://rfepy4hqgrcy"]
+
+[ext_resource type="PackedScene" uid="uid://c5vw5bgbf5y7h" path="res://scenes/prizes/capybara.tscn" id="1_5exwa"]
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_ml2or"]
+
+[resource]
+script = ExtResource("1_ml2or")
+Coins = 15
+Mass = 0.5
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 10
+Themes = Array[int]([3])
+PrizeScene = ExtResource("1_5exwa")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://hmdvbdhxr2gs"]
+
+[ext_resource type="PackedScene" uid="uid://bgi1jjhg8ule7" path="res://scenes/prizes/plushie.tscn" id="1_3a77g"]
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_x1om4"]
+
+[resource]
+script = ExtResource("1_x1om4")
+Coins = 15
+Mass = 0.5
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 3
+Themes = Array[int]([0, 1])
+PrizeScene = ExtResource("1_3a77g")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

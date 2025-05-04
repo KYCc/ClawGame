@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://cj513o611s2le"]
+
+[ext_resource type="PackedScene" uid="uid://i1uafmg77q8y" path="res://scenes/prizes/banana.tscn" id="1_p0tvr"]
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_rhk7p"]
+
+[resource]
+script = ExtResource("1_rhk7p")
+Coins = 15
+Mass = 0.5
+CanSpawnOnMovingPlatform = true
+SpawnChanceWeight = 20
+Themes = Array[int]([2])
+PrizeScene = ExtResource("1_p0tvr")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

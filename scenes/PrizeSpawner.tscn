@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://d35wcoihrehe3"]
+
+[ext_resource type="Script" uid="uid://d2obmofwp0lel" path="res://scenes/PrizeSpawner.cs" id="1_anpnh"]
+[ext_resource type="Resource" uid="uid://dp5aqq8nxah85" path="res://resources/prize/beach_ball.tres" id="2_b4hx3"]
+[ext_resource type="Resource" uid="uid://hmdvbdhxr2gs" path="res://resources/prize/plushie.tres" id="3_08gis"]
+[ext_resource type="Resource" uid="uid://d4mu5iufeky14" path="res://resources/prize/shark.tres" id="4_l8sm0"]
+
+[node name="PrizeSpawner" type="Node3D" node_paths=PackedStringArray("spawnDelayTimer")]
+script = ExtResource("1_anpnh")
+prizeResources = Array[Object]([ExtResource("2_b4hx3"), ExtResource("3_08gis"), ExtResource("4_l8sm0")])
+spawnDelayTimer = NodePath("Timer")
+maxPrizes = 40
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1

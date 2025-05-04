@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://diqlrrliw62n2"]
+
+[ext_resource type="PackedScene" uid="uid://vcfa2c0wr5e3" path="res://assets/models/conveyorbelt/conveyorbelt.glb" id="1_oouln"]
+[ext_resource type="Script" uid="uid://bjpbampwfwuj5" path="res://scenes/ConveyorBelt.cs" id="1_ug35p"]
+[ext_resource type="Material" uid="uid://djrqj1h01s01y" path="res://assets/models/conveyorbelt/conveyorbelt_mat.tres" id="2_ug35p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oouln"]
+size = Vector3(0.88, 0.130552, 0.799969)
+
+[sub_resource type="Animation" id="Animation_wpcrh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("conveyorbelt/Cube:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1gyoa"]
+resource_name = "on"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("conveyorbelt/Cube:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qn1f"]
+_data = {
+&"RESET": SubResource("Animation_wpcrh"),
+&"on": SubResource("Animation_1gyoa")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gyoa"]
+size = Vector3(0.898544, 0.025802, 0.799969)
+
+[node name="ConveyorBelt" type="Node3D" node_paths=PackedStringArray("area3D", "destroyTimer")]
+script = ExtResource("1_ug35p")
+area3D = NodePath("Area3D")
+destroyTimer = NodePath("Timer")
+
+[node name="conveyorbelt" parent="." instance=ExtResource("1_oouln")]
+
+[node name="Cube" parent="conveyorbelt" index="0"]
+surface_material_override/0 = ExtResource("2_ug35p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="conveyorbelt"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conveyorbelt/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00131103, 0)
+shape = SubResource("BoxShape3D_oouln")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6qn1f")
+}
+autoplay = "on"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000175178, 0.0808756, 0)
+shape = SubResource("BoxShape3D_1gyoa")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[editable path="conveyorbelt"]

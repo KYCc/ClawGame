@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://bkv7akjg47moy"]
+
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_0p2cu"]
+[ext_resource type="PackedScene" uid="uid://cvk3ymm4dsngi" path="res://scenes/prizes/snowball.tscn" id="1_fa73i"]
+
+[resource]
+script = ExtResource("1_0p2cu")
+Coins = 6
+Mass = 1.0
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 20
+Themes = Array[int]([4])
+PrizeScene = ExtResource("1_fa73i")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

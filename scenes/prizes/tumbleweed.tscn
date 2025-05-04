@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2u2f5p3pe80c"]
+
+[ext_resource type="Texture2D" uid="uid://delapy2lnnebb" path="res://assets/materials/SandTexture.jpg" id="1_xkuh5"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="2_60put"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b4wcl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7is7n"]
+albedo_texture = ExtResource("1_xkuh5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_on2o8"]
+material = SubResource("StandardMaterial3D_7is7n")
+
+[node name="Tumbleweed" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_b4wcl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_on2o8")
+
+[node name="PrizeComponent" parent="." instance=ExtResource("2_60put")]
+prizeResourcePath = "uid://dof5iewj0vlsa"
+rigidBodyPath = NodePath("../RigidBody3D")

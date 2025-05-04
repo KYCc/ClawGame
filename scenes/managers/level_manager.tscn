@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2cof0beexcf"]
+
+[ext_resource type="Script" uid="uid://ued68u0jpg3m" path="res://scenes/managers/LevelManager.cs" id="1_dypyr"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_dypyr")

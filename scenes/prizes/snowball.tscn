@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvk3ymm4dsngi"]
+
+[ext_resource type="Texture2D" uid="uid://d10d78o5diduc" path="res://assets/models/godotplush/textures/godot_plush_roughness.png" id="1_g0by2"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="2_sgtco"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sgtco"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sph3"]
+albedo_texture = ExtResource("1_g0by2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ruex2"]
+material = SubResource("StandardMaterial3D_0sph3")
+
+[node name="Snowball" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_sgtco")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_ruex2")
+
+[node name="PrizeComponent" parent="." instance=ExtResource("2_sgtco")]
+prizeResourcePath = "uid://bkv7akjg47moy"
+rigidBodyPath = NodePath("../RigidBody3D")

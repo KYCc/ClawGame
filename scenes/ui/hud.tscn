@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr7anp5vs7n68"]
+
+[ext_resource type="Script" uid="uid://ctqfe0ujvhqkh" path="res://scenes/ui/CoinLabel.cs" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://eqnvp4hmbp0f" path="res://scenes/ui/Hud.cs" id="1_hqnrr"]
+[ext_resource type="Texture2D" uid="uid://d216ugifxbjx3" path="res://assets/ui/coin_beach.png" id="2_bo48s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bo48s"]
+font_size = 50
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("coinLabel", "coinSprite")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqnrr")
+coinLabel = NodePath("CoinLabel")
+coinSprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_bo48s")
+centered = false
+offset = Vector2(25, 25)
+
+[node name="CoinLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 143.0
+offset_top = 36.0
+offset_right = 228.0
+offset_bottom = 105.0
+text = "x10"
+label_settings = SubResource("LabelSettings_bo48s")
+script = ExtResource("1_0mwgc")

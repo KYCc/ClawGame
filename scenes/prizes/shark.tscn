@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnsm8d1rd643b"]
+
+[ext_resource type="PackedScene" uid="uid://b0wmd8utqy414" path="res://assets/models/shark/SharkV1.fbx" id="1_k3473"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="2_2ijda"]
+
+[node name="Shark" type="Node3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="SharkV1" parent="." instance=ExtResource("1_k3473")]
+
+[node name="PrizeComponent" parent="SharkV1" instance=ExtResource("2_2ijda")]
+prizeResourcePath = "uid://d4mu5iufeky14"
+rigidBodyPath = NodePath("../SharkV1")
+
+[editable path="SharkV1"]

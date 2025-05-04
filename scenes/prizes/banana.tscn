@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://i1uafmg77q8y"]
+
+[ext_resource type="PackedScene" uid="uid://djviw1gmq8arh" path="res://assets/models/banana/banana.glb" id="1_goq06"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="2_57gub"]
+
+[node name="Banana" type="Node3D"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_goq06")]
+
+[node name="PrizeComponent" parent="Sketchfab_Scene" instance=ExtResource("2_57gub")]
+prizeResourcePath = "uid://cj513o611s2le"
+rigidBodyPath = NodePath("../Sketchfab_model/Low_Poly_Banana_fbx/RootNode/polySurface4/polySurface4_lambert1_0")
+
+[editable path="Sketchfab_Scene"]

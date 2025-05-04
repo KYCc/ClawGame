@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://dp5aqq8nxah85"]
+
+[ext_resource type="PackedScene" uid="uid://1qcmuhqmmwsf" path="res://scenes/prizes/beach_ball.tscn" id="1_7hpvj"]
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_sr0to"]
+
+[resource]
+script = ExtResource("1_sr0to")
+Coins = 6
+Mass = 1.0
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 20
+Themes = Array[int]([0])
+PrizeScene = ExtResource("1_7hpvj")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

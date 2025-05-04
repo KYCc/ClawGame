@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://eiwj54tf7qvc"]
+
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_3t8c3"]
+[ext_resource type="PackedScene" uid="uid://b4qeo282e8fe" path="res://scenes/prizes/alpaca.tscn" id="1_ufky1"]
+
+[resource]
+script = ExtResource("1_3t8c3")
+Coins = 20
+Mass = 0.5
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 13
+Themes = Array[int]([4, 3])
+PrizeScene = ExtResource("1_ufky1")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

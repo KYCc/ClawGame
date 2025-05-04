@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgi1jjhg8ule7"]
+
+[ext_resource type="PackedScene" uid="uid://c4wn1qck5qoy4" path="res://assets/models/godotplush/godot_plush_standing.fbx" id="1_fty1a"]
+[ext_resource type="PackedScene" uid="uid://c4vylx2kavtng" path="res://scenes/prizes/plushie_collision.tscn" id="2_ojrdo"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="3_f8md5"]
+
+[node name="Plushie" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="PlushieCollision" parent="." instance=ExtResource("2_ojrdo")]
+
+[node name="PlushieModel" parent="PlushieCollision" instance=ExtResource("1_fty1a")]
+
+[node name="PrizeComponent" parent="." instance=ExtResource("3_f8md5")]
+prizeResourcePath = "uid://hmdvbdhxr2gs"
+rigidBodyPath = NodePath("../PlushieCollision")
+
+[editable path="PlushieCollision/PlushieModel"]

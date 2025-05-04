@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdak6nb3vfce6"]
+
+[ext_resource type="AudioStream" uid="uid://ctvdq87g408nt" path="res://assets/audio/ambience/Beach Ambience-1.wav" id="1_thu50"]
+[ext_resource type="PackedScene" uid="uid://c6lp66d18pkvg" path="res://scenes/ui/main_menu.tscn" id="2_m7x51"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h61rw"]
+sky_top_color = Color(0.392157, 0.572549, 0.847059, 1)
+sky_horizon_color = Color(0.839216, 0.619608, 0.843137, 1)
+ground_bottom_color = Color(0.435294, 0.580392, 0.894118, 1)
+ground_horizon_color = Color(0.647059, 0.654902, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_wa2ab"]
+resource_local_to_scene = true
+sky_material = SubResource("ProceduralSkyMaterial_h61rw")
+
+[sub_resource type="Environment" id="Environment_fcv5n"]
+background_mode = 2
+sky = SubResource("Sky_wa2ab")
+ambient_light_source = 3
+ambient_light_color = Color(0.784314, 0.694118, 0.192157, 1)
+ssao_enabled = true
+
+[node name="StartMenu" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.893371, -0.449319, 0, -1.96404e-08, 3.90505e-08, 1, -0.449319, 0.893372, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 1, 0.67451, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fcv5n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.2, 2.7, 2.4)
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_thu50")
+autoplay = true
+bus = &"Ambience"
+
+[node name="MainMenu" parent="." instance=ExtResource("2_m7x51")]

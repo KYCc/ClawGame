@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://xeui1umjift"]
+
+[ext_resource type="PackedScene" uid="uid://cuyci2t6ru1bt" path="res://scenes/prizes/cactus.tscn" id="1_icav1"]
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_vsc2j"]
+
+[resource]
+script = ExtResource("1_vsc2j")
+Coins = 20
+Mass = 0.5
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 10
+Themes = Array[int]([3])
+PrizeScene = ExtResource("1_icav1")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

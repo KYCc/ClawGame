@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://dof5iewj0vlsa"]
+
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_fg7d0"]
+[ext_resource type="PackedScene" uid="uid://c2u2f5p3pe80c" path="res://scenes/prizes/tumbleweed.tscn" id="1_qjxsa"]
+
+[resource]
+script = ExtResource("1_fg7d0")
+Coins = 6
+Mass = 1.0
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 20
+Themes = Array[int]([3])
+PrizeScene = ExtResource("1_qjxsa")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

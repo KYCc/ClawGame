@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d00o87msq58da"]
+
+[ext_resource type="Script" uid="uid://bg045y47io3a4" path="res://scenes/managers/SoundManager.cs" id="1_rfe6j"]
+
+[node name="ClawSounds" type="Node"]
+script = ExtResource("1_rfe6j")

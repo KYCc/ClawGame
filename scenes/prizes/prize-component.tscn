@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cak5e5l0o1mon"]
+
+[ext_resource type="Script" uid="uid://cgam8j66pudyi" path="res://scenes/prizes/PrizeComponent.cs" id="1_5kmku"]
+
+[node name="PrizeComponent" type="Node"]
+script = ExtResource("1_5kmku")

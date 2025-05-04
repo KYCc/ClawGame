@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PrizeResource" load_steps=3 format=3 uid="uid://2jwrv8xhvv31"]
+
+[ext_resource type="Script" uid="uid://x5r4vd31hq80" path="res://resources/prize/PrizeResource.cs" id="1_xcd0d"]
+[ext_resource type="PackedScene" uid="uid://dy4ax11cwcdf8" path="res://scenes/prizes/coconut.tscn" id="1_xegdq"]
+
+[resource]
+script = ExtResource("1_xcd0d")
+Coins = 6
+Mass = 1.0
+CanSpawnOnMovingPlatform = false
+SpawnChanceWeight = 20
+Themes = Array[int]([2])
+PrizeScene = ExtResource("1_xegdq")
+metadata/_custom_type_script = "uid://x5r4vd31hq80"

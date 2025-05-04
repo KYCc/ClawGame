@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuyci2t6ru1bt"]
+
+[ext_resource type="PackedScene" uid="uid://css8jynt1xknj" path="res://assets/models/cactus/cactus.glb" id="1_8wmsc"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="2_a1nkq"]
+
+[node name="Cactus" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_8wmsc")]
+
+[node name="PrizeComponent" parent="Sketchfab_Scene" instance=ExtResource("2_a1nkq")]
+prizeResourcePath = "uid://xeui1umjift"
+rigidBodyPath = NodePath("../Sketchfab_model/Root/Cube/Cube_0")
+
+[editable path="Sketchfab_Scene"]

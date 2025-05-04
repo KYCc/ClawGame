@@ -1,0 +1,138 @@
+[gd_scene load_steps=25 format=3 uid="uid://yh6q16ier765"]
+
+[ext_resource type="PackedScene" uid="uid://cu606dts0yr6v" path="res://scenes/platform.tscn" id="1_0gcaq"]
+[ext_resource type="PackedScene" uid="uid://be2cof0beexcf" path="res://scenes/managers/level_manager.tscn" id="1_wa2ab"]
+[ext_resource type="PackedScene" uid="uid://sr1m0efpgp81" path="res://assets/models/plaque items/fish.glb" id="2_kosuc"]
+[ext_resource type="Script" uid="uid://bhaoj0xsysdft" path="res://scenes/PlaqueObject.cs" id="4_6a84g"]
+[ext_resource type="PackedScene" uid="uid://cmgqfgmogq5rm" path="res://scenes/claw.tscn" id="4_hts8y"]
+[ext_resource type="PackedScene" uid="uid://cr7anp5vs7n68" path="res://scenes/ui/hud.tscn" id="5_0j0ly"]
+[ext_resource type="AudioStream" uid="uid://brbcxfx6wd4kk" path="res://assets/audio/SFX/whale/whale1.mp3" id="5_26d2n"]
+[ext_resource type="AudioStream" uid="uid://pfu244gm6t2a" path="res://assets/audio/SFX/whale/whale2.mp3" id="6_55crh"]
+[ext_resource type="PackedScene" uid="uid://d35wcoihrehe3" path="res://scenes/PrizeSpawner.tscn" id="6_txjxq"]
+[ext_resource type="Resource" uid="uid://dp5aqq8nxah85" path="res://resources/prize/beach_ball.tres" id="7_0j0ly"]
+[ext_resource type="AudioStream" uid="uid://d01v6flve4qk" path="res://assets/audio/SFX/whale/whale3.mp3" id="7_4ik4v"]
+[ext_resource type="AudioStream" uid="uid://ctvdq87g408nt" path="res://assets/audio/ambience/Beach Ambience-1.wav" id="7_myu2h"]
+[ext_resource type="Resource" uid="uid://hmdvbdhxr2gs" path="res://resources/prize/plushie.tres" id="8_txjxq"]
+[ext_resource type="AudioStream" uid="uid://teenxtkvu4sc" path="res://assets/audio/SFX/whale/whale4.mp3" id="8_wratd"]
+[ext_resource type="AudioStream" uid="uid://riluskoumuva" path="res://assets/audio/music/beach-vibe-321763.mp3" id="8_xiwg6"]
+[ext_resource type="Resource" uid="uid://d4mu5iufeky14" path="res://resources/prize/shark.tres" id="9_myu2h"]
+[ext_resource type="Resource" uid="uid://biu8frmqt13ut" path="res://resources/prize/parasol.tres" id="10_0j0ly"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
+sky_top_color = Color(0.392157, 0.572549, 0.847059, 1)
+sky_horizon_color = Color(0.839216, 0.619608, 0.843137, 1)
+ground_bottom_color = Color(0.435294, 0.580392, 0.894118, 1)
+ground_horizon_color = Color(0.647059, 0.654902, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_6a84g"]
+resource_local_to_scene = true
+sky_material = SubResource("ProceduralSkyMaterial_sgp6g")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_6a84g")
+ambient_light_source = 3
+ambient_light_color = Color(0.784314, 0.694118, 0.192157, 1)
+ssao_enabled = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8fhmt"]
+streams_count = 4
+stream_0/stream = ExtResource("5_26d2n")
+stream_1/stream = ExtResource("6_55crh")
+stream_2/stream = ExtResource("7_4ik4v")
+stream_3/stream = ExtResource("8_wratd")
+
+[sub_resource type="Animation" id="Animation_pvltb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0ysty"]
+resource_name = "shake"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.338594), Vector3(0, 0, -0.125664), Vector3(0, 0, 0.223402), Vector3(0, 0, -0.47822), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijgfd"]
+resource_local_to_scene = true
+_data = {
+&"RESET": SubResource("Animation_pvltb"),
+&"shake": SubResource("Animation_0ysty")
+}
+
+[node name="LevelBeach" type="Node3D"]
+
+[node name="LevelManager" parent="." node_paths=PackedStringArray("hud", "camera", "plaqueObject") instance=ExtResource("1_wa2ab")]
+coinsToWin = 35
+coinSpritePath = "res://assets/ui/coin_beach.png"
+nextLevelPath = "res://scenes/levels/level_desert.tscn"
+hud = NodePath("../Hud")
+camera = NodePath("../Camera3D")
+plaqueObject = NodePath("../Platform/Sketchfab_Scene")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.893371, -0.449319, 0, -1.96404e-08, 3.90505e-08, 1, -0.449319, 0.893372, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 1, 0.67451, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wfyh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.2, 2.7, 2.4)
+
+[node name="Platform" parent="." instance=ExtResource("1_0gcaq")]
+
+[node name="Sketchfab_Scene" parent="Platform" instance=ExtResource("2_kosuc")]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 2.1, 3.3, -0.3)
+script = ExtResource("4_6a84g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Platform/Sketchfab_Scene"]
+stream = SubResource("AudioStreamRandomizer_8fhmt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/Sketchfab_Scene"]
+libraries = {
+&"": SubResource("AnimationLibrary_ijgfd")
+}
+
+[node name="Claw" parent="." instance=ExtResource("4_hts8y")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.6, 1.6, -0.4)
+ClawSpeed = 3.0
+
+[node name="Hud" parent="." instance=ExtResource("5_0j0ly")]
+
+[node name="PrizeSpawner" parent="." instance=ExtResource("6_txjxq")]
+prizeResources = Array[Object]([ExtResource("7_0j0ly"), ExtResource("8_txjxq"), ExtResource("9_myu2h"), ExtResource("10_0j0ly")])
+maxPrizes = 30
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_myu2h")
+autoplay = true
+bus = &"Ambience"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xiwg6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

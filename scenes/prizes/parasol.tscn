@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://csab11iesrcft"]
+
+[ext_resource type="PackedScene" uid="uid://jx0mk05np6to" path="res://assets/models/beach props/Models/Beach_Umbrella.fbx" id="1_shmim"]
+[ext_resource type="Texture2D" uid="uid://c1tpsxfl2xtj5" path="res://assets/models/beach props/Textures/BeachPropsAtlas_Default.png" id="2_m7jn5"]
+[ext_resource type="PackedScene" uid="uid://cak5e5l0o1mon" path="res://scenes/prizes/prize-component.tscn" id="3_13g16"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8e16"]
+albedo_texture = ExtResource("2_m7jn5")
+
+[node name="Parasol" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Beach_Umbrella" parent="." instance=ExtResource("1_shmim")]
+
+[node name="Beach_Umbrella" parent="Beach_Umbrella/Beach_Umbrella" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_e8e16")
+
+[node name="PrizeComponent" parent="Beach_Umbrella" instance=ExtResource("3_13g16")]
+prizeResourcePath = "uid://biu8frmqt13ut"
+rigidBodyPath = NodePath("../Beach_Umbrella")
+
+[editable path="Beach_Umbrella"]
